@@ -35,6 +35,9 @@
                 if (inputValue[i] == alphabet[j]){
                     encrypted += cypher[j];
                 }
+                else if (inputValue[i] == " "){
+                    encrypted += "//";
+                }
             }
         }
         document.getElementById("output").textContent = "output: " + encrypted;
