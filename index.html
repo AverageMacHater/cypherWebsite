@@ -31,12 +31,12 @@
         inputValue = inputValue.toLowerCase();
         if (inputValue != null) {console.log(inputValue);}
         for (let i = 0; i < inputValue.length; i++){
+            if (inputValue[i] == " "){
+                    encrypted += "//";
+                }
             for (let j = 0; j < 26; j++){
                 if (inputValue[i] == alphabet[j]){
                     encrypted += cypher[j];
-                }
-                else if (inputValue[i] == " "){
-                    encrypted += "//";
                 }
             }
         }
