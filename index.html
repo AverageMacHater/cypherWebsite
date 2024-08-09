@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<title>Kris's cypher</title>
+<div align="center"><h1>Kris's cypher</h1>
+</br>
+</br>
+</br>
+<p>Type in some text below.</p>
+<input id="input">
+<button type="button" onclick="encrypt()">encrypt</button>
+</br>
+</br>
+</br>
+<h2 id="output"></h2>
+</div>
+
+</body>
+</html>
+
+<script>
+    const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+    const cypher = [".", "!", "w", ":", "u", ";", "s", "$", "q", "&", "o", "\"", "||", "'", "L", "0", "i", "(", "g", "#", "d", "?", "]", "a", "%", "z"]
+    let inputValue = "";
+    function encrypt(){
+        let encrypted = "";
+        inputValue = document.getElementById("input").value;
+        inputValue = inputValue.toLowerCase();
+        if (inputValue != null) {console.log(inputValue);}
+        for (let i = 0; i < inputValue.length; i++){
+            for (let j = 0; j < 26; j++){
+                if (inputValue[i] == alphabet[j]){
+                    encrypted += cypher[j];
+                }
+            }
+        }
+        document.getElementById("output").textContent = "output: " + encrypted;
+    }
+</script>
