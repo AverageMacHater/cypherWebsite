@@ -2,20 +2,21 @@
 <html>
 <head>
 </head>
-<body>
+<body style="background-color: black">
 
 <title>Kris's cypher</title>
-<div align="center"><h1>Kris's cypher</h1>
+<div align="center"><h1 style="color: white;">Kris's cypher</h1>
 </br>
 </br>
 </br>
-<p>Type in some text below.</p>
-<input id="input">
-<button type="button" onclick="encrypt()">encrypt</button>
+<p style="color: white;">Type in some text below.</p>
+<input id="input" style="color: white; background-color: black;">
+<button type="button" style="color: white; background-color: black;" onclick="encrypt()">encrypt</button>
+<button type="button" style="color: white; background-color: black;" onclick="decrypt()">decrypt</button>
 </br>
 </br>
 </br>
-<h2 id="output"></h2>
+<h2 id="output" style="color: white;"></h2>
 </div>
 
 </body>
@@ -25,21 +26,37 @@
     const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
     const cypher = [".", "!", "w", ":", "u", ";", "s", "$", "q", "&", "o", "\"", "||", "'", "L", "0", "i", "(", "g", "#", "d", "?", "]", "a", "%", "z"]
     let inputValue = "";
-    function encrypt(){
-        let encrypted = "";
+    
+    function decrypt(){
+        let out = "";
         inputValue = document.getElementById("input").value;
         inputValue = inputValue.toLowerCase();
-        if (inputValue != null) {console.log(inputValue);}
         for (let i = 0; i < inputValue.length; i++){
-            if (inputValue[i] == " "){
-                    encrypted += "//";
+            if (inputValue[i] == "//"){
+                out += " ";
             }
             for (let j = 0; j < 26; j++){
-                if (inputValue[i] == alphabet[j]){
-                    encrypted += cypher[j];
+                if (inputValue[i] == cypher[j]){
+                    out += alphabet[j];
                 }
             }
         }
-        document.getElementById("output").textContent = "output: " + encrypted;
+        document.getElementById("output").textContent = "output: " + out;
+    }
+    function encrypt(){
+        let out = "";
+        inputValue = document.getElementById("input").value;
+        inputValue = inputValue.toLowerCase();
+        for (let i = 0; i < inputValue.length; i++){
+            if (inputValue[i] == " "){
+                out += "//";
+            }
+            for (let j = 0; j < 26; j++){
+                if (inputValue[i] == alphabet[j]){
+                    out += cypher[j];
+                }
+            }
+        }
+        document.getElementById("output").textContent = "output: " + out;
     }
 </script>
